@@ -2,16 +2,19 @@ import string
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
+
+import cv2
+import matplotlib.pyplot as plt
+import cvlib as cv
+from cvlib.object_detection import draw_bbox
+
+def yolo():
+    im = cv2.imread('room_ser.jpg')
+    bbox, label, conf = cv.detect_common_objects(im)
+
+    return label
+
 stopwords = stopwords.words('english')
-
-tokens = [
-
-]
-
-#print(len(tokens))
-
-sen =  'This is a foo bar sentence.'
-sen1 = 'This sentence is similar to a foo bar sentence.'
 
 sentences = [
     'Take a picture',
@@ -57,7 +60,12 @@ while True:
             accuracy = temp_accuracy
             index = i
     
-    print(accuracy,'% , index: ',index)
+    #print(accuracy,'% , index: ',index)
+    if index==1:
+        labels = yolo()
+        
+        print(labels)
+
 
     print()
 #    print(csim)
