@@ -1,0 +1,4 @@
+there are two types of classes:
+
+1) go
+2) stop
